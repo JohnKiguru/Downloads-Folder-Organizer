@@ -1,5 +1,11 @@
 import os,shutil
 
+def move_file(file,path):
+    shutil.move(file,path)
+
+def perform_copy(join_path,file,copy_path):
+    shutil.copy(os.path.join(join_path,file),copy_path)    
+
 def organizeDownloads():
     '''
     Go inside my Downloads folder :
@@ -17,31 +23,39 @@ def organizeDownloads():
 
             if file.endswith(".mp4"):
                 if os.path.exists("C:\\Users\\JS Pundit\\Downloads\\videos"):
-                    shutil.move(file,"C:\\Users\\JS Pundit\\Downloads\\videos")
-                    shutil.copy(os.path.join("C:\\Users\\JS Pundit\\Downloads\\videos",file),"C:\\Users\\JS Pundit\\Videos")
+                    move_file(file,"C:\\Users\\JS Pundit\\Downloads\\videos")
+                    perform_copy("C:\\Users\\JS Pundit\\Downloads\\videos",file,"C:\\Users\\JS Pundit\\Videos")
                     
                 else:
+
                     os.makedirs("C:\\Users\\JS Pundit\\Downloads\\videos")
-                    shutil.move(file,"C:\\Users\\JS Pundit\\Downloads\\videos")
-                    shutil.copy(os.path.join("C:\\Users\\JS Pundit\\Downloads\\videos",file),"C:\\Users\\JS Pundit\\Videos")
+                    move_file(file,"C:\\Users\\JS Pundit\\Downloads\\videos")
+                    perform_copy("C:\\Users\\JS Pundit\\Downloads\\videos",file,"C:\\Users\\JS Pundit\\Videos")
+                    
                     
             elif file.endswith(".pdf"):
 
                 if os.path.exists("C:\\Users\\JS Pundit\\Downloads\\PDF_Files"):
-                    shutil.move(file,"C:\\Users\\JS Pundit\\Downloads\\PDF_Files")
-                    shutil.copy(os.path.join("C:\\Users\\JS Pundit\\Downloads\\PDF_Files",file),"C:\\Users\\JS Pundit\\Documents\\PDF_Backup")
+
+                    move_file(file,"C:\\Users\\JS Pundit\\Downloads\\PDF_Files")
+
+                    perform_copy("C:\\Users\\JS Pundit\\Downloads\\PDF_Files",file,"C:\\Users\\JS Pundit\\Documents\\PDF_Backup")
                     
                 else:
+
                     os.makedirs("C:\\Users\\JS Pundit\\Downloads\\PDF_Files")
-                    shutil.move(file,"C:\\Users\\JS Pundit\\Downloads\\PDF_Files")
+                    move_file(file,"C:\\Users\\JS Pundit\\Downloads\\PDF_Files")
+                    perform_copy("C:\\Users\\JS Pundit\\Downloads\\PDF_Files",file,"C:\\Users\\JS Pundit\\Documents\\PDF_Backup")
                     
 
             elif file.endswith(".exe") or file.endswith(".msi"):
+                
                 if os.path.exists("C:\\Users\\JS Pundit\\Downloads\\Programs"):
-                    shutil.move(file,"C:\\Users\\JS Pundit\\Downloads\\Programs")
+                    move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Programs")
                 else:
+
                      os.makedirs("C:\\Users\\JS Pundit\\Downloads\\Programs")
-                     shutil.move(file,"C:\\Users\\JS Pundit\\Downloads\\Programs")
+                     move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Programs")
             else:
                 print("This file sorts is of unsupported format:)")                                    
     print("100% ..Done")
