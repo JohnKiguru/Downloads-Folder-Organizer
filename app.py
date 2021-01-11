@@ -48,7 +48,7 @@ def organizeDownloads():
                     perform_copy("C:\\Users\\JS Pundit\\Downloads\\PDF_Files",file,"C:\\Users\\JS Pundit\\Documents\\PDF_Backup")
                     
 
-            elif file.endswith(".exe") or file.endswith(".msi"):
+            elif file.endswith(".exe") or file.endswith(".msi") or file.endswith(".webm"):
                 
                 if os.path.exists("C:\\Users\\JS Pundit\\Downloads\\Programs"):
                     move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Programs")
@@ -57,7 +57,7 @@ def organizeDownloads():
                      os.makedirs("C:\\Users\\JS Pundit\\Downloads\\Programs")
                      move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Programs")
 
-            elif file.endswith(".jpg"):
+            elif file.endswith(".jpg") or file.endswith(".png") or file.endswith(".jpeg"):
                 if os.path.exists("C:\\Users\\JS Pundit\\Downloads\\Pics"):
                     move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Pics")
                 else:
