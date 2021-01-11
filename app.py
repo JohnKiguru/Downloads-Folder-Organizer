@@ -56,6 +56,13 @@ def organizeDownloads():
 
                      os.makedirs("C:\\Users\\JS Pundit\\Downloads\\Programs")
                      move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Programs")
+
+            elif file.endswith(".jpg"):
+                if os.path.exists("C:\\Users\\JS Pundit\\Downloads\\Pics"):
+                    move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Pics")
+                else:
+                    os.makedirs("C:\\Users\\JS Pundit\\Downloads\\Pics")
+                    move_file(file,"C:\\Users\\JS Pundit\\Downloads\\Pics")            
             else:
                 print("This file sorts is of unsupported format:)")                                    
     print("100% ..Done")
